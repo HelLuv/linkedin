@@ -2,15 +2,15 @@ import * as React from 'react';
 import {NextPage} from "next";
 import Head from "next/head";
 import Image from "next/image";
+import {ClientSafeProvider, getProviders, LiteralUnion, signIn} from "next-auth/react";
+import {BuiltInProviderType} from "next-auth/providers";
+import {CtxOrReq} from "next-auth/client/_utils";
 import ExploreIcon from "@mui/icons-material/Explore";
 import GroupIcon from "@mui/icons-material/Group";
 import OndemandVideoSharpIcon from "@mui/icons-material/OndemandVideoSharp";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import {HeaderLink} from "../components";
-import {CtxOrReq} from "next-auth/client/_utils";
-import {ClientSafeProvider, getProviders, LiteralUnion} from "next-auth/react";
-import {BuiltInProviderType} from "next-auth/providers";
 
 interface HomeProps {
   providers: Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider>
@@ -22,6 +22,7 @@ const Home: NextPage<HomeProps> = ({providers}) => {
     <div className="space-y-10 relative">
       <Head>
         <title>LinkedIn</title>
+        <meta name="description" content="LinkedIn home page"/>
         <link rel="icon" href="/favicon.ico"/>
       </Head>
       <header className="flex justify-around items-center py-4">
@@ -39,9 +40,13 @@ const Home: NextPage<HomeProps> = ({providers}) => {
           {providers && Object?.values(providers).map((provider) => (
             <div key={provider.name}>
               <div className="pl-4">
-                <button className="text-blue-700 font-semibold rounded-full
-                                   border border-blue-700 px-5 py-1.5
-                                   transition-all hover:border-2">
+                <button
+                  type="button"
+                  className="text-blue-700 font-semibold rounded-full
+                             border border-blue-700 px-5 py-1.5
+                             transition-all hover:border-2 hover:px-[1.2rem]"
+                  onClick={() => signIn(provider.id, {callbackUrl: "/"})}
+                >
                   Sign In
                 </button>
               </div>
