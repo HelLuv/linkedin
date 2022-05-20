@@ -84,14 +84,14 @@ const Home: NextPage<HomeProps> = ({providers}) => {
   )
 };
 
-export default React.memo<HomeProps>(Home);
+export default Home;
 
 export async function getServerSideProps(context: CtxOrReq) {
   const providers = await getProviders();
 
   return {
     props: {
-      providers
+      providers,
     },
   };
 }

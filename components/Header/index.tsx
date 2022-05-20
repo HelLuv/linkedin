@@ -29,7 +29,6 @@ const Header: React.FC<HeaderProps> = ({}) => {
 
   React.useEffect(() => setMounted(true), []);
 
-  // TODO: Header
   return (
     <header
       className="sticky top-0 z-40 bg-white dark:bg-[#1d2226] flex items-center justify-around py-1.5 px-3 focus-within:shadow-lg">
@@ -40,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
             {resolvedTheme === "dark" ? (
               <Image src="https://rb.gy/bizvqj" width={45} height={45}/>
             ) : (
-              <Image src="https://rb.gy/otrf7x" width={55} height={55}/>
+              <Image src="https://rb.gy/8mkbgj" width={45} height={45}/>
             )}
           </>
         )}
@@ -72,7 +71,6 @@ const Header: React.FC<HeaderProps> = ({}) => {
               resolvedTheme === "dark" ? "justify-end" : "justify-start"
             }`}
             onClick={() => {
-              console.log(resolvedTheme)
               setTheme(resolvedTheme === "dark" ? "light" : "dark")
             }
             }
