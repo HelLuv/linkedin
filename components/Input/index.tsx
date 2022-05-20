@@ -7,6 +7,7 @@ import VideoCameraBackIcon from "@mui/icons-material/VideoCameraBack";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ArticleIcon from "@mui/icons-material/Article";
 import {useRecoilState} from "recoil";
+
 import {modalState, modalTypeState} from "../../atoms/modalAtom";
 
 interface InputProps {
