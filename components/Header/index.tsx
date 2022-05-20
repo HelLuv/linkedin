@@ -9,15 +9,11 @@ import AppsOutlinedIcon from "@mui/icons-material/AppsOutlined";
 import {useTheme} from "next-themes";
 import Image from "next/image";
 import {Avatar} from "@mui/material";
-import {motion, Transition} from "framer-motion";
+import {motion} from "framer-motion";
 
 import {HeaderLink} from "../index";
+import {spring} from "../../animations";
 
-const spring: Transition = {
-  type: "spring",
-  stiffness: 700,
-  damping: 30,
-};
 
 interface HeaderProps {
 

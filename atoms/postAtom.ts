@@ -1,4 +1,5 @@
 import {atom} from "recoil";
+import {IPost} from "../types/IPost";
 
 
 export const handlePostState = atom({
@@ -8,7 +9,7 @@ export const handlePostState = atom({
 
 export const getPostState = atom({
   key: "getPostState",
-  default: {},
+  default: {} as IPost,
 });
 
 export const useSSRPostState = atom({
