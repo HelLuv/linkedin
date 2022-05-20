@@ -11,7 +11,6 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({}) => {
   const {data: session} = useSession();
-  // TODO: Sidebar
   return (
     <div className="space-y-2 min-w-max max-w-lg">
       {/*Top*/}

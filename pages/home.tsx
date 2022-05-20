@@ -17,7 +17,6 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({providers}) => {
-  // TODO: Home
   return (
     <div className="space-y-10 relative">
       <Head>
