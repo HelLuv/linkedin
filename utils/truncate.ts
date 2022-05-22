@@ -1,0 +1,3 @@
+export default function truncate(str: string, n: number) {
+  return str?.length > n ? str.substring(0, n - 1) + "...see more" : str;
+}

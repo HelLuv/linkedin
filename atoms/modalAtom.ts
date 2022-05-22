@@ -5,7 +5,7 @@ export const modalState = atom({
   default: false,
 });
 
-export const modalTypeState = atom({
+export const modalTypeState = atom<"dropIn" | "gifYouUp">({
   key: "modalTypeState",
   default: "dropIn",
 });

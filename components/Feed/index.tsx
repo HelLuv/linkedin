@@ -27,7 +27,7 @@ const Feed: React.FC<FeedProps> = ({posts}) => {
       setUseSSRPosts(false);
     };
 
-    fetchPosts();
+    fetchPosts().then(r => r);
   }, [handlePost])
 
   return (
