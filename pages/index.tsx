@@ -3,7 +3,7 @@ import Head from 'next/head';
 import {CtxOrReq} from "next-auth/client/_utils";
 import {getSession} from "next-auth/react";
 
-import {Feed, Header, Modal, Sidebar} from "../components";
+import {Feed, Header, Modal, Sidebar, Widgets} from "../components";
 import {connectToDatabase} from "../utils/mongodb";
 import {IPost} from "../types/IPost";
 import {AnimatePresence} from "framer-motion";
@@ -12,10 +12,11 @@ import {modalState, modalTypeState} from "../atoms/modalAtom";
 import {handlePostState} from "../atoms/postAtom";
 
 interface HomeProps {
-  posts: Array<IPost>
+  posts: Array<IPost>;
+  articles: Array<any>;
 }
 
-const Home: NextPage<HomeProps> = ({posts}) => {
+const Home: NextPage<HomeProps> = ({posts, articles}) => {
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
   const [modalType, setModalType] = useRecoilState<"dropIn" | "gifYouUp">(modalTypeState);
   return (
@@ -33,7 +34,7 @@ const Home: NextPage<HomeProps> = ({posts}) => {
           <Sidebar/>
           <Feed posts={posts}/>
         </div>
-        {/*Widgets*/}
+        <Widgets articles={articles}/>
         <AnimatePresence>
           {modalOpen && (
             <Modal handleClose={() => setModalOpen(false)} type={modalType}/>
@@ -69,7 +70,7 @@ export async function getServerSideProps(context: CtxOrReq) {
   return {
     props: {
       session,
-      // articles: result?.articles,
+      articles: result?.articles,
       posts: posts.map((post) => ({
         _id: post._id.toString(),
         input: post.input,

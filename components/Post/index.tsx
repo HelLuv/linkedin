@@ -40,6 +40,18 @@ const Post: React.FC<PostProps> = ({post, modalPost}) => {
     setModalOpen(false);
   };
 
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: truncate(post.input, 150),
+        url: process.env.NEXTAUTH_URL + `/posts/${post._id}`
+      }).then(() => {
+        console.log('Thanks for sharing!');
+      })
+        .catch(console.error);
+    }
+  }
+
   return (
     <div className={`bg-white dark:bg-[#1d2226] ${
       modalPost ? "rounded-r-lg" : "rounded-lg"
@@ -119,7 +131,7 @@ const Post: React.FC<PostProps> = ({post, modalPost}) => {
             <h4>Delete post</h4>
           </button>
         ) : (
-          <button className="postButton">
+          <button className="postButton" onClick={handleShare}>
             <ReplyRoundedIcon className="-scale-x-100"/>
             <h4>Share</h4>
           </button>

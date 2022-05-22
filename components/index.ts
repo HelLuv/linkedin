@@ -7,3 +7,4 @@ export {default as Post} from "./Post";
 export {default as Modal} from "./Modal";
 export {default as Form} from "./Form";
 export {default as Backdrop} from "./Backdrop";
+export {default as Widgets} from "./Widgets";
