@@ -2,6 +2,8 @@
   "name": "linkedin-clone",
   "version": "0.1.0",
   "private": true,
+  "author": "Nick Miriad",
+  "email": "worksperson@gmail.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

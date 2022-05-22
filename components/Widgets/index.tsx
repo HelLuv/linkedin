@@ -13,7 +13,6 @@ interface WidgetsProps {
 }
 
 const Widgets: React.FC<WidgetsProps> = ({articles}) => {
-  React.useEffect(() => console.log(articles[0]), [])
   return (
     <div className="hidden xl:inline space-y-2">
       <div
@@ -29,6 +28,7 @@ const Widgets: React.FC<WidgetsProps> = ({articles}) => {
               key={article.url}
               href={article.url}
               target="_blank"
+              rel="noreferrer"
               className="flex space-x-2 items-center cursor-pointer hover:bg-black/10 dark:hover:bg-black/20 px-2.5 py-1"
             >
               <FiberManualRecordRoundedIcon className="!h-2 !w-2"/>

@@ -18,7 +18,7 @@ interface HomeProps {
 
 const Home: NextPage<HomeProps> = ({posts, articles}) => {
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
-  const [modalType, setModalType] = useRecoilState<"dropIn" | "gifYouUp">(modalTypeState);
+  const [modalType] = useRecoilState<"dropIn" | "gifYouUp">(modalTypeState);
   return (
     <div className="bg-[#f3f2ef] dark:bg-black dark:text-white h-screen overflow-y-scroll md:space-y-6">
       <Head>

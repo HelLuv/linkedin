@@ -21,7 +21,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({}) => {
   const [mounted, setMounted] = React.useState(false);
-  const {setTheme, resolvedTheme, theme} = useTheme();
+  const {setTheme, resolvedTheme} = useTheme();
 
   React.useEffect(() => setMounted(true), []);
 
